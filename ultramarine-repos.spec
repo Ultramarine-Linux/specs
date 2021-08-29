@@ -1,6 +1,11 @@
 %global _disable_source_fetch 0
 %global _dist_version %{?fedora}
 
+# key value:
+%define _source_refspec b9579c24e29a93c9516bc7333bc74c4148961ec4
+
+%define _source_baseurl https://gitlab.ultramarine-linux.org/dist-pkgs/sources/-/raw/%{_source_refspec}/ultramarine-repos
+
 Name: ultramarine-repos
 Version: %{_dist_version}
 Release: 0.3
@@ -16,7 +21,7 @@ Metapackage for Ultramarine Linux repositories
 %package common
 Summary: Common repository for Ultramarine Linux
 Requires: fedora-repos(%{version})
-Source100: ultramarine.repo
+Source100: %{_source_baseurl}/ultramarine.repo
 %description common
 Common repository file for Ultramarine Linux
 
@@ -32,10 +37,10 @@ Source200: https://flathub.org/repo/flathub.flatpakrepo
 #Source202: rpmfusion-free-updates.repo
 #Source203: rpmfusion-nonfree.repo
 #Source204: rpmfusion-nonfree-updates.repo
-Source205: docker-ce.repo
-Source206: vscodium.repo
-Source208: winehq.repo
-Source209: akmods-secureboot.repo
+Source205: %{_source_baseurl}/docker-ce.repo
+Source206: %{_source_baseurl}/vscodium.repo
+Source208: %{_source_baseurl}/winehq.repo
+Source209: %{_source_baseurl}/akmods-secureboot.repo
 %description extras
 Additional repository files for Ultramarine Linux that provides access to popular software that are not shipped by default:
     - Flathub's Flatpak repo (enabled by default)
@@ -48,7 +53,7 @@ Additional repository files for Ultramarine Linux that provides access to popula
 
 %package extras-jam
 Summary: Additional packages for Audio Production
-Source300: patrickl-jam.repo
+Source300: %{_source_baseurl}/patrickl-jam.repo
 %description extras-jam
 PatrickL's extra Copr repositories for audio production. Includes:
     - Wine with Fsync and TKG enabled --> disabled by default
@@ -60,20 +65,20 @@ PatrickL's extra Copr repositories for audio production. Includes:
 
 %package cyber
 Summary: Repository for the Cyber Desktop
-Source400: cyber-desktop.repo
+Source400: %{_source_baseurl}/cyber-desktop.repo
 %description cyber
 Repository file for the Cyber Desktop
 
 %package cutefish
 Summary: Repository for the Cutefish Desktop
-Source500: cutefish-desktop.repo
+Source500: %{_source_baseurl}/cutefish-desktop.repo
 %description cutefish
 Repository file for the Cutefish Desktop
 
 %package budgie
 Summary: Repositories for the Budgie Desktop
-Source600: budgie-desktop.repo
-Source601: lightdm-gtk-budgie.repo
+Source600: %{_source_baseurl}/budgie-desktop.repo
+Source601: %{_source_baseurl}/lightdm-gtk-budgie.repo
 %description budgie
 Repository files for the Budgie Desktop
 

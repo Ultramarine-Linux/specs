@@ -1,3 +1,5 @@
+%global _disable_source_fetch 0
+
 %if %{fedora} == 34
 %global release_name lazuli
 %endif
@@ -14,20 +16,25 @@
 
 %global dist_version %{fedora}
 
+# key value:
+%define _source_refspec b9579c24e29a93c9516bc7333bc74c4148961ec4
+
+%define _source_baseurl https://gitlab.ultramarine-linux.org/dist-pkgs/sources/-/raw/%{_source_refspec}/ultramarine-release
+
 Summary:	Ultramarine Linux release files
 Name:		ultramarine-release
 Version:	%{dist_version}
 Release:	0.3
 License:	MIT
-Source0:	LICENSE
-Source1:	README.developers
-Source2:	README.Ultramarine-Release-Notes
-Source3:	README.license
+Source0:	%{_source_baseurl}/LICENSE
+Source1:	%{_source_baseurl}/README.developers
+Source2:	%{_source_baseurl}/README.Ultramarine-Release-Notes
+Source3:	%{_source_baseurl}/README.license
 
-Source6:	85-display-manager.preset
-Source7:	90-default.preset
-Source8:	99-default-disable.preset
-Source9:	90-default-user.preset
+Source6:	%{_source_baseurl}/85-display-manager.preset
+Source7:	%{_source_baseurl}/90-default.preset
+Source8:	%{_source_baseurl}/99-default-disable.preset
+Source9:	%{_source_baseurl}/90-default-user.preset
 
 BuildArch: noarch
 
