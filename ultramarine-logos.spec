@@ -5,9 +5,9 @@ Name: ultramarine-logos
 Summary: Icons and pictures related to Ultramarine Linux
 Version: 34.0.4
 %define _release 2%{?dist}
-Release: %{_release}.3
-URL: https://gitlab.com/ultramarine-linux/ultramarine-logos
-Source0: https://gitlab.com/ultramarine-linux/ultramarine-logos/-/archive/lapis/ultramarine-logos-lapis.tar.gz
+Release: %{_release}.4
+URL: https://gitlab.ultramarine-linux.org/design/logos
+Source0: https://gitlab.ultramarine-linux.org/design/logos/-/archive/lapis/logos-lapis.tar.gz
 Source1: https://cdn.discordapp.com/attachments/873096743741452318/877520230111408169/distributor-logo-ultramarine-flat.svg
 License: Licensed only for approved usage, see COPYING for details.
 Provides: redhat-logos = %{version}-%{_release}
@@ -55,7 +55,7 @@ BuildArch: noarch
 Ultramarine Linux assets to complement the whitesur-icon-theme package
 
 %prep
-%setup -qn ultramarine-logos-lapis
+%setup -qn logos-lapis
  
 %build
  
